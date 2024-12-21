@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <title>For you Dũng!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="title">Log in</h2>
+        <span>A gift from your partner is waiting for you. Confirm to accept it!</span>
+        <div class="input">
+            <label for="username">Your name</label>
+            <input type="text" name="username" id="username" class="username">
+            <label for="pw">Current your partner</label>
+            <span>* Full name and birthday of Your partner (dd/mm/yyyy) </span>
+            <input type="password" name="pw" id="pw" class="pw">
+            <p id="not"></p>
+            <button id="submitBtn"><i class="bi bi-arrow-right"></i></button>
+        </div>
+        <div class="or"> OR </div>
+        <div class="order-option">
+            <div class="option" id="showWhat">Partner's information</div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("showWhat").addEventListener("click", function () {
+            const numElements = 50;
+            const container = document.body;
+            const messages = [
+                { className: "what", text: "?" },
+                { className: "date", text: "Alooo, đồ tồi không nhớ thật hả!!!" },
+                { className: "date", text: "Ủa alooo??" }
+            ];
+
+            for (let i = 0; i < numElements; i++) {
+                messages.forEach((message) => {
+                    const element = document.createElement("div");
+                    element.classList.add(message.className);
+                    element.textContent = message.text;
+
+                    const randomX = Math.random() * window.innerWidth;
+                    const randomY = Math.random() * window.innerHeight;
+
+                    element.style.left = `${randomX}px`;
+                    element.style.top = `${randomY}px`;
+
+                    const randomEffect = Math.random() > 0.5 ? "bounce" : "shake";
+                    element.style.animation = `${randomEffect} 1s ease infinite`;
+
+                    container.appendChild(element);
+
+                    setTimeout(() => {
+                        element.remove();
+                    }, Math.floor(Math.random() * (3000 - 1000)) + 1000);
+                });
+            }
+        });
+
+        const showNot = (text = "Not empty, pls!") => {
+            const not = document.getElementById("not");
+            not.style.display = 'block';
+            not.textContent = text
+            setTimeout(() => {
+                not.style.display = 'none';
+            }, 3000);
+        }
+
+        document.getElementById("submitBtn").addEventListener("click", function (event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value.trim().toLowerCase();
+            const partnerInfo = document.getElementById("pw").value.trim().toLowerCase();
+            if (username === "" || partnerInfo === "") {
+                showNot()
+                return;
+            }
+
+            const checkPW = (value) => {
+                const validOptions = [
+                    "dinh tuan kiet",
+                    "đinh tuấn kiệt",
+                    "01/07/2002",
+                    "đinh tuấn kiệt 01/07/2002",
+                    "01/07/2002 đinh tuấn kiệt",
+                    "đinhtuấnkiệt01/07/2002",
+                    "01/07/2002đinhtuấnkiệt",
+                    "dinhtuankiet01/07/2002",
+                    "01/07/2002dinhtuankiet",
+                ];
+                return validOptions.includes(value.toLowerCase());
+            };
+
+            const checkUN = (value) => {
+                const validOptions = [
+                    "trần văn dũng",
+                    "tran van dung",
+                    "tranvandung"]
+                return validOptions.includes(value)
+            }
+
+            if (!checkUN(username) || !checkPW(partnerInfo)) {
+                showNot("Sai roi")
+                return
+            } else {
+                showNot("Đúng roi")
+                setTimeout(() => {
+                    window.location.href = "noelTree.html"; // Tên file đích
+                }, 1000); // Chờ 1 giây để hiển thị thông báo
+                return
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
