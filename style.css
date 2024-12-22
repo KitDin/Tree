@@ -16,7 +16,7 @@ body {
     width: 345px;
     position: relative;
     height: fit-content;
-    display: none;
+    display: flex;
     justify-content: center;
     flex-direction: column;
     background-color: #ffffff;
@@ -316,7 +316,7 @@ body {
 .loading {
     position: relative;
     width: 110px;
-    display: flex;
+    display: none;
     position: relative;
     top: 15px;
 }
