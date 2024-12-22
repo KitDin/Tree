@@ -34,8 +34,17 @@
         <div class="order-option">
             <div class="option" id="showWhat">Partner's information</div>
         </div>
-    </div>
+        <div class="bur"></div>
 
+    </div>
+    <div class="moder-quest">
+        <div class="moder-header">Quest 01</div>
+        <div class="moder-content">Là người yêu của bạn đúng chứ ???</div>
+        <div class="moder-answers">
+            <div class="btn-true">Đúng</div>
+            <div class="btn-false">Không</div>
+        </div>
+    </div>
     <script>
         document.getElementById("showWhat").addEventListener("click", function () {
             const numElements = 50;
@@ -81,13 +90,13 @@
 
         document.getElementById("submitBtn").addEventListener("click", function (event) {
             event.preventDefault();
-
+            let currentQuestionIndex = 0;
             const username = document.getElementById("username").value.trim().toLowerCase();
             const partnerInfo = document.getElementById("pw").value.trim().toLowerCase();
-            if (username === "" || partnerInfo === "") {
-                showNot()
-                return;
-            }
+            // if (username === "" || partnerInfo === "") {
+            //     showNot()
+            //     return;
+            // }
 
             const checkPW = (value) => {
                 const validOptions = [
@@ -101,7 +110,7 @@
                     "dinhtuankiet01/07/2002",
                     "01/07/2002dinhtuankiet",
                 ];
-                return validOptions.includes(value.toLowerCase());
+                return validOptions.includes(value.toLowerCase()) || true;
             };
 
             const checkUN = (value) => {
@@ -109,20 +118,83 @@
                     "trần văn dũng",
                     "tran van dung",
                     "tranvandung"]
-                return validOptions.includes(value)
+                return validOptions.includes(value) || true
             }
 
             if (!checkUN(username) || !checkPW(partnerInfo)) {
                 showNot("Sai roi")
                 return
             } else {
-                showNot("Đúng roi")
-                setTimeout(() => {
-                    window.location.href = "noelTree.html"; // Tên file đích
-                }, 1000); // Chờ 1 giây để hiển thị thông báo
+                const questions = [
+                    {
+                        title: "Quest 01",
+                        content: "Là người yêu của bạn đúng chứ ???",
+                    },
+                    {
+                        title: "Quest 02",
+                        content: "Bạn có yêu người ấy của bạn không?",
+                    },
+                    {
+                        title: "Quest 03",
+                        content: "Sẽ có quà cho người ấy của bạn mà đúng không?",
+                    },
+                ];
+
+                const moder = document.querySelector(".moder-quest");
+                const bur = document.querySelector(".bur");
+                const header = document.querySelector(".moder-header");
+                const content = document.querySelector(".moder-content");
+                const btnTrue = document.querySelector(".btn-true");
+                const btnFalse = document.querySelector(".btn-false");
+
+
+
+                function showQuestion(index) {
+                    if (index < questions.length) {
+                        header.textContent = questions[index].title;
+                        content.textContent = questions[index].content;
+                        moder.style.display = "inline-block";
+                        bur.style.display = "block";
+                    } else {
+                        moder.style.display = "none";
+                        bur.style.display = "none";
+                        alert("Bạn đã trả lời hết câu hỏi!");
+                    }
+                }
+
+                function handleAnswer() {
+                    currentQuestionIndex++;
+                    showQuestion(currentQuestionIndex);
+                }
+
+                function handleFalse() {
+                    const moderWidth = moder.offsetWidth;
+                    const moderHeight = moder.offsetHeight;
+                    // Giới hạn các giá trị cho vị trí
+                    const randomX = Math.random() * window.innerWidth;
+                    const randomY = Math.random() * window.innerHeight;
+
+                    // Đảm bảo tọa độ ngẫu nhiên nằm trong phạm vi hợp lý
+                    // Cập nhật vị trí của moder
+                    moder.style.left = `${randomX}px`;
+                    moder.style.top = `${randomY}px`;
+                }
+
+                btnTrue.addEventListener("click", handleAnswer);
+                btnFalse.addEventListener("click", handleFalse);
+
+                showQuestion(currentQuestionIndex);
+
+                // setTimeout(() => {
+                //     window.location.href = "noelTree.html"; 
+                // }, 1000); 
                 return
             }
         });
+
+
+
+
 
     </script>
 
