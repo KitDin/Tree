@@ -1,9 +1,18 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-
+  <meta charset="UTF-8">
+  <title>Merry Christmas Tree!</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Ephesis&family=Roboto:wght@500&display=swap');
+    @font-face {
+      font-family: 'mountains_of_christmasregular';
+      src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/mountainsofchristmas-webfont.woff2') format('woff2'),
+        url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/mountainsofchristmas-webfont.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+
+    }
 
     body {
       background-color: #151522;
@@ -19,7 +28,6 @@
       width: 100%;
       margin: 0;
       padding: 0;
-      /* background: url('https://hdwallpaperfx.com/wp-content/uploads/2023/09/iPhone-14-Pro-Christmas-Wallpaper.jpg'); */
     }
 
 
@@ -31,178 +39,34 @@
     }
 
     .sparkle {
-      mix-blend-mode: luminosity
+      /* mix-blend-mode:luminosity */
     }
 
-
-    .fall_snow {
-
-      background-image: url('../images/snow1.png'), url('../images/snow2.png'), url('../images/snow3.png');
-
-      height: 100%;
-
-      left: 0;
-
-      position: absolute;
-
-      top: 0;
-
-      width: 100%;
-
-
-
-      -webkit-animation: snow 10s linear infinite;
-
-      -moz-animation: snow 10s linear infinite;
-
-      -ms-animation: snow 10s linear infinite;
-
-      animation: snow 10s linear infinite;
-    }
-
-    .text {
-      padding: 15px 15px 15px 15px;
-      font-family: "Ephesis", sans-serif;
-      font-size: 83px;
-      color: #fffefe;
-      position: fixed;
-      top: calc(50% - 500px);
+    #endMessage {
+      font-family: mountains_of_christmasregular;
+      font-size: 2rem;
+      text-anchor: middle;
       text-align: center;
+      fill: #FFFFFF;
+      color: #FFFFFF;
       opacity: 0;
+      letter-spacing: 1px;
     }
 
-    .typewriter {
-      overflow: hidden;
-      /* Ensures the content is not revealed until the animation */
-      border-right: 2px solid white;
-      /* The typwriter cursor */
-      white-space: nowrap;
-      /* Keeps the content on a single line */
-      margin: 0 auto;
-      /* Gives that scrolling effect as the typing happens */
-      letter-spacing: .15em;
-      /* Adjust as needed */
-      animation:
-        typing 3.5s steps(40, end) forwards,
-        blink-caret .75s step-end forwards;
-      animation-delay: 5s;
+    a {
+      color: white;
+      text-decoration: underline dotted #FFFFFF;
     }
 
-    .santa-claus {
-      animation: santa 2s forwards;
-      animation-delay: 6s;
-      width: 300px;
-      height: 300px;
-      position: fixed;
-      top: calc(50% + 30px);
-      left: calc(50% + 200px);
-      opacity: 0;
-    }
+    a:visited {
+      color: red;
 
-
-    @keyframes snow {
-
-      0% {
-        background-position: 0px 0px, 0px 0px, 0px 0px;
-      }
-
-      50% {
-        background-position: 500px 500px, 100px 200px, -100px 150px;
-      }
-
-      100% {
-        background-position: 500px 1000px, 200px 400px, -100px 300px;
-      }
-
-    }
-
-    @-moz-keyframes snow {
-
-      0% {
-        background-position: 0px 0px, 0px 0px, 0px 0px;
-      }
-
-      50% {
-        background-position: 500px 500px, 100px 200px, -100px 150px;
-      }
-
-      100% {
-        background-position: 400px 1000px, 200px 400px, 100px 300px;
-      }
-
-    }
-
-    @-webkit-keyframes snow {
-
-      0% {
-        background-position: 0px 0px, 0px 0px, 0px 0px;
-      }
-
-      50% {
-        background-position: 500px 500px, 100px 200px, -100px 150px;
-      }
-
-      100% {
-        background-position: 500px 1000px, 200px 400px, -100px 300px;
-      }
-
-    }
-
-    @-ms-keyframes snow {
-
-      0% {
-        background-position: 0px 0px, 0px 0px, 0px 0px;
-      }
-
-      50% {
-        background-position: 500px 500px, 100px 200px, -100px 150px;
-      }
-
-      100% {
-        background-position: 500px 1000px, 200px 400px, -100px 300px;
-      }
-
-    }
-
-    /* The typing effect */
-    @keyframes typing {
-      from {
-        width: 0;
-        opacity: 0;
-      }
-
-      to {
-        width: 100%;
-        opacity: 1;
-      }
-    }
-
-    /* The typing effect */
-    @keyframes santa {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    /* The typewriter cursor effect */
-    @keyframes blink-caret {
-
-      from,
-      to {
-        border-color: transparent
-      }
-
-      50% {
-        border-color: #fff;
-      }
     }
   </style>
+</head>
 
 <body>
+  <!-- partial:index.partial.html -->
   <svg class="mainSVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 800 600">
     <defs>
@@ -213,7 +77,6 @@
         points="4,3.5 2.5,2 4,0.5 3.5,0 2,1.5 0.5,0 0,0.5 1.5,2 0,3.5 0.5,4 2,2.5 3.5,4 " />
       <path id="heart" class="particle" d="M2.9,0C2.53,0,2.2,0.18,2,0.47C1.8,0.18,1.47,0,1.1,0C0.49,0,0,0.49,0,1.1
 	C0,2.6,1.56,4,2,4s2-1.4,2-2.9C4,0.49,3.51,0,2.9,0z" />
-
 
       <radialGradient id="grad" cx="3" cy="3" r="6" gradientUnits="userSpaceOnUse">
         <stop offset="0" style="stop-color:red" />
@@ -251,7 +114,7 @@
           <feFuncR type="discrete" tableValues="0.8" />
           <feFuncG type="discrete" tableValues="0.3" />
           <feFuncB type="discrete" tableValues="0.2" />
-          <feFuncA type="linear" slope="1" intercept="0" />
+          <!--<feFuncA type="linear" slope="1" intercept="0" />-->
         </feComponentTransfer>
 
         <feComposite in="SourceGraphic" operator="over" />
@@ -294,221 +157,37 @@
           fill="#C89568" />
       </g>
       <circle class="sparkle" fill="url(#dotGrad)" cx="0" cy="0" r="50" />
-
     </g>
+    <foreignObject id="endMessage" x="0" y="550" width="800" height="250">
+      <span class="endMessage">
+        Merry Christmas!!!!!!
+      </span>
+    </foreignObject>
   </svg>
-  <h1 class="text typewriter">Merry Christmas</h1>
-  <div class="fall_snow"></div>
-  <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin3.min.js"></script>
-  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/DrawSVGPlugin3.min.js"></script>
-  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MotionPathPlugin.min.js"></script>
-  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/Physics2DPlugin3.min.js"></script>
-  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/EasePack3.min.js"></script>
-  <script>
-    MorphSVGPlugin.convertToPath('polygon');
-    var xmlns = "http://www.w3.org/2000/svg",
-      xlinkns = "http://www.w3.org/1999/xlink",
-      select = function (s) {
-        return document.querySelector(s);
-      },
-      selectAll = function (s) {
-        return document.querySelectorAll(s);
-      },
-      pContainer = select('.pContainer'),
-      mainSVG = select('.mainSVG'),
-      star = select('#star'),
-      sparkle = select('.sparkle'),
-      tree = select('#tree'),
-      showParticle = true,
-      particleColorArray = ['#E8F6F8', '#ACE8F8', '#F6FBFE', '#A2CBDC', '#B74551', '#5DBA72', '#910B28', '#910B28', '#446D39'],
-      particleTypeArray = ['#star', '#circ', '#cross', '#heart'],
-      // particleTypeArray = ['#star'],
-      particlePool = [],
-      particleCount = 0,
-      numParticles = 201
 
-
-    gsap.set('svg', {
-      visibility: 'visible'
-    })
-
-    gsap.set(sparkle, {
-      transformOrigin: '50% 50%',
-      y: -100
-    })
-
-    let getSVGPoints = (path) => {
-
-      let arr = []
-      var rawPath = MotionPathPlugin.getRawPath(path)[0];
-      rawPath.forEach((el, value) => {
-        let obj = {}
-        obj.x = rawPath[value * 2]
-        obj.y = rawPath[(value * 2) + 1]
-        if (value % 2) {
-          arr.push(obj)
-        }
-        //console.log(value)
-      })
-
-      return arr;
-    }
-    let treePath = getSVGPoints('.treePath'),
-      treeBottomPath = getSVGPoints('.treeBottomPath'),
-      mainTl = gsap.timeline({ delay: 0, repeat: 0 }),
-      starTl;
-
-    function flicker(p) {
-
-      gsap.killTweensOf(p, { opacity: true });
-      gsap.fromTo(p, {
-        opacity: 1
-      }, {
-        duration: 0.07,
-        opacity: Math.random(),
-        repeat: -1
-      })
-    }
-
-    function createParticles() {
-
-      var i = numParticles, p, particleTl, step = numParticles / treePath.length, pos;
-      while (--i > -1) {
-
-        p = select(particleTypeArray[i % particleTypeArray.length]).cloneNode(true);
-        mainSVG.appendChild(p);
-        p.setAttribute('fill', particleColorArray[i % particleColorArray.length]);
-        p.setAttribute('class', "particle");
-        particlePool.push(p);
-        //hide them initially
-        gsap.set(p, {
-          x: -100,
-          y: -100,
-          transformOrigin: '50% 50%'
-        })
-
-
-
-      }
-
-    }
-
-    var getScale = gsap.utils.random(0.5, 3, 0.001, true);
-
-    function playParticle(p) {
-      if (!showParticle) { return };
-      var p = particlePool[particleCount]
-      gsap.set(p, {
-        x: gsap.getProperty('.pContainer', 'x'),
-        y: gsap.getProperty('.pContainer', 'y'),
-        scale: getScale()
-      }
-      );
-      var tl = gsap.timeline();
-      tl.to(p, {
-        duration: gsap.utils.random(0.61, 6),
-        physics2D: {
-          velocity: gsap.utils.random(-23, 23),
-          angle: gsap.utils.random(-180, 180),
-          gravity: gsap.utils.random(-6, 50)
-        },
-        scale: 0,
-        rotation: gsap.utils.random(-123, 360),
-        ease: 'power1',
-        onStart: flicker,
-        onStartParams: [p],
-        onRepeat: (p) => {
-          gsap.set(p, {
-            scale: getScale()
+  <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin3.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/DrawSVGPlugin3.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MotionPathPlugin.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/Physics2DPlugin3.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/EasePack3.min.js'></script>
+  <script> (function () {
+      function r(a) { gsap.killTweensOf(a, { opacity: !0 }); gsap.fromTo(a, { opacity: 1 }, { duration: .07, opacity: Math.random(), repeat: -1 }) } function t(a) {
+        e && (a = l[d], gsap.set(a, { x: gsap.getProperty(".pContainer", "x"), y: gsap.getProperty(".pContainer", "y"), scale: m() }), gsap.timeline().to(a, {
+          duration: gsap.utils.random(.61, 6), physics2D: { velocity: gsap.utils.random(-23, 23), angle: gsap.utils.random(-180, 180), gravity: gsap.utils.random(-6, 50) }, scale: 0, rotation: gsap.utils.random(-123, 360), ease: "power1", onStart: r, onStartParams: [a],
+          onRepeat: function (b) { gsap.set(b, { scale: m() }) }, onRepeatParams: [a]
+        }), d++, d = 201 <= d ? 0 : d)
+      } MorphSVGPlugin.convertToPath("polygon"); document.querySelector(".pContainer"); var u = document.querySelector(".mainSVG"); document.querySelector("#star"); var c = document.querySelector(".sparkle"); document.querySelector("#tree"); var e = !0, n = "#E8F6F8 #ACE8F8 #F6FBFE #A2CBDC #B74551 #5DBA72 #910B28 #910B28 #446D39".split(" "), p = ["#star", "#circ", "#cross", "#heart"], l = [], d = 0; gsap.set("svg", { visibility: "visible" }); gsap.set(c,
+        { transformOrigin: "50% 50%", y: -100 }); c = function (a) { var b = [], f = MotionPathPlugin.getRawPath(a)[0]; f.forEach(function (v, g) { var h = {}; h.x = f[2 * g]; h.y = f[2 * g + 1]; g % 2 && b.push(h) }); return b }; c(".treePath"); var q = c(".treeBottomPath"); c = gsap.timeline({ delay: 0, repeat: 0 }); var k, m = gsap.utils.random(.5, 3, .001, !0); (function () {
+          for (var a = 201, b; -1 < --a;)b = document.querySelector(p[a % p.length]).cloneNode(!0), u.appendChild(b), b.setAttribute("fill", n[a % n.length]), b.setAttribute("class", "particle"), l.push(b), gsap.set(b, {
+            x: -100,
+            y: -100, transformOrigin: "50% 50%"
           })
-        },
-        onRepeatParams: [p]
+        })(); (function () { k = gsap.timeline({ onUpdate: t }); k.to(".pContainer, .sparkle", { duration: 6, motionPath: { path: ".treePath", autoRotate: !1 }, ease: "linear" }).to(".pContainer, .sparkle", { duration: 1, onStart: function () { e = !1 }, x: q[0].x, y: q[0].y }).to(".pContainer, .sparkle", { duration: 2, onStart: function () { e = !0 }, motionPath: { path: ".treeBottomPath", autoRotate: !1 }, ease: "linear" }, "-=0").from(".treeBottomMask", { duration: 2, drawSVG: "0% 0%", stroke: "#FFF", ease: "linear" }, "-=2") })(); c.from([".treePathMask",
+          ".treePotMask"], { drawSVG: "0% 0%", stroke: "#FFF", stagger: { each: 6 }, duration: gsap.utils.wrap([6, 1, 2]), ease: "linear" }).from(".treeStar", { duration: 3, scaleY: 0, scaleX: .15, transformOrigin: "50% 50%", ease: "elastic(1,0.5)" }, "-=4").to(".sparkle", { duration: 3, opacity: 0, ease: "rough({strength: 2, points: 100, template: linear, taper: both, randomize: true, clamp: false})" }, "-=0").to(".treeStarOutline", { duration: 1, opacity: 1, ease: "rough({strength: 2, points: 16, template: linear, taper: none, randomize: true, clamp: false})" },
+            "+=1"); c.add(k, 0); gsap.globalTimeline.timeScale(1.5); k.vars.onComplete = function () { gsap.to('foreignObject', { opacity: 1 }) }
+    })();</script>
 
-      });
-
-
-      particleCount++;
-      particleCount = (particleCount >= numParticles) ? 0 : particleCount
-
-    }
-
-    function drawStar() {
-
-      starTl = gsap.timeline({ onUpdate: playParticle })
-      starTl.to('.pContainer, .sparkle', {
-        duration: 6,
-        motionPath: {
-          path: '.treePath',
-          autoRotate: false
-        },
-        ease: 'linear'
-      })
-        .to('.pContainer, .sparkle', {
-          duration: 1,
-          onStart: function () { showParticle = false },
-          x: treeBottomPath[0].x,
-          y: treeBottomPath[0].y
-        })
-        .to('.pContainer, .sparkle', {
-          duration: 2,
-          onStart: function () { showParticle = true },
-          motionPath: {
-            path: '.treeBottomPath',
-            autoRotate: false
-          },
-          ease: 'linear'
-        }, '-=0')
-        .from('.treeBottomMask', {
-          duration: 2,
-          drawSVG: '0% 0%',
-          stroke: '#FFF',
-          ease: 'linear'
-        }, '-=2')
-
-    }
-
-
-    createParticles();
-    drawStar();
-
-    mainTl.from(['.treePathMask', '.treePotMask'], {
-      duration: 6,
-      drawSVG: '0% 0%',
-      stroke: '#FFF',
-      stagger: {
-        each: 6
-      },
-      duration: gsap.utils.wrap([6, 1, 2]),
-      ease: 'linear'
-    })
-      .from('.treeStar', {
-        duration: 3,
-        scaleY: 0,
-        scaleX: 0.15,
-        transformOrigin: '50% 50%',
-        ease: 'elastic(1,0.5)'
-      }, '-=4')
-
-      .to('.sparkle', {
-        duration: 3,
-        opacity: 0,
-        ease: "rough({strength: 2, points: 100, template: linear, taper: both, randomize: true, clamp: false})"
-      }, '-=0')
-      .to('.treeStarOutline', {
-        duration: 1,
-        opacity: 1,
-        ease: "rough({strength: 2, points: 16, template: linear, taper: none, randomize: true, clamp: false})"
-      }, '+=1')
-
-    mainTl.add(starTl, 0)
-    gsap.globalTimeline.timeScale(1.5);
-
-  </script>
-  <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-
-  <dotlottie-player class="santa-claus" src="https://lottie.host/6d0dfa5c-028c-4847-8389-06304eb1b01e/5TtJvD6xoM.json"
-    background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
 </body>
 
 </html>
