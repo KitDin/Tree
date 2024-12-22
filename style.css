@@ -9,14 +9,14 @@ body {
     align-items: center;
     height: 100vh;
     background-color: aliceblue;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .container {
     width: 345px;
     position: relative;
     height: fit-content;
-    display: flex;
+    display: none;
     justify-content: center;
     flex-direction: column;
     background-color: #ffffff;
@@ -231,6 +231,11 @@ body {
         font-size: 14px;
         /* Điều chỉnh kích thước chữ */
     }
+
+    .loading-items {
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 .bur {
@@ -295,4 +300,110 @@ body {
 .moder-quest .moder-answers>div:hover {
     background-color: #e7e7e7;
     color: black;
+}
+
+.loading-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 200px;
+    position: relative;
+
+}
+
+
+/* Loading 1 */
+.loading {
+    position: relative;
+    width: 110px;
+    display: flex;
+    position: relative;
+    top: 15px;
+}
+
+.loading span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    border-radius: 30px;
+    position: absolute;
+    bottom: 0;
+}
+
+.loading span:first-child {
+    animation: loading-span1 1.3s infinite;
+    left: 0;
+}
+
+.loading span:nth-child(2) {
+    animation: loading-span2 1.3s infinite;
+    left: 40px;
+}
+
+.loading span:nth-child(3) {
+    animation: loading-span3 1.3s infinite;
+    left: 80px;
+}
+
+@keyframes loading-span1 {
+    0% {
+        height: 30px;
+    }
+
+    25% {
+        height: 50px;
+    }
+
+    50% {
+        height: 30px;
+    }
+
+    100% {
+        height: 30px;
+    }
+}
+
+@keyframes loading-span2 {
+    0% {
+        height: 30px;
+    }
+
+    25% {
+        height: 30px;
+    }
+
+    50% {
+        height: 50px;
+    }
+
+    75% {
+        height: 30px;
+    }
+
+    100% {
+        height: 30px;
+    }
+}
+
+@keyframes loading-span3 {
+    0% {
+        height: 30px;
+    }
+
+    25% {
+        height: 30px;
+    }
+
+    50% {
+        height: 30px;
+    }
+
+    75% {
+        height: 50px;
+    }
+
+    100% {
+        height: 30px;
+    }
 }

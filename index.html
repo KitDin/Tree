@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" id="container">
         <h2 class="title">Log in</h2>
         <span>A gift from your partner is waiting for you. Confirm to accept it!</span>
         <div class="input">
@@ -45,6 +45,15 @@
             <div class="btn-false">Không</div>
         </div>
     </div>
+
+    <div id="loading-items" class="loading-items">
+        <div class="loading">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
     <script>
         document.getElementById("showWhat").addEventListener("click", function () {
             const numElements = 50;
@@ -146,35 +155,56 @@
                 const content = document.querySelector(".moder-content");
                 const btnTrue = document.querySelector(".btn-true");
                 const btnFalse = document.querySelector(".btn-false");
-
+                let isTroll = false;
+                let goCard = false;
 
 
                 function showQuestion(index) {
                     if (index < questions.length) {
                         header.textContent = questions[index].title;
                         content.textContent = questions[index].content;
-                        moder.style.display = "inline-block";
+                        moder.style.display = "block";
                         bur.style.display = "block";
+                        if (index === 2) isTroll = true
                     } else {
                         moder.style.display = "none";
                         bur.style.display = "none";
-                        alert("Bạn đã trả lời hết câu hỏi!");
+                        alert("Chúc mừng bạn, bạn đã trả lời hết tất cả các câu hỏi rồi.");
+                        currentQuestionIndex = 0
                     }
                 }
 
                 function handleAnswer() {
-                    currentQuestionIndex++;
-                    showQuestion(currentQuestionIndex);
+                    if (currentQuestionIndex === questions.length - 1) {
+                        const container = document.getElementById("container")
+                        const loading = document.getElementById("loading-items")
+                        loading.style.display = "flex";
+                        container.style.display = "none"
+                        moder.style.display = "none";
+                        bur.style.display = "none";
+                        setTimeout(() => {
+                            window.location.href = "noelTree.html";
+                        }, 2000);
+                    } else {
+                        currentQuestionIndex++;
+                        showQuestion(currentQuestionIndex);
+                    }
                 }
 
                 function handleFalse() {
-                    const moderWidth = moder.offsetWidth;
-                    const moderHeight = moder.offsetHeight;
-                    // Giới hạn các giá trị cho vị trí
-                    const randomX = Math.random() * window.innerWidth;
-                    const randomY = Math.random() * window.innerHeight;
+                    if (!isTroll) {
+                        moder.style.display = "none";
+                        bur.style.display = "none";
+                        currentQuestionIndex = 0
+                        return
+                    }
+                    // Giới hạn vị trí
+                    const maxX = window.innerWidth;
+                    const maxY = window.innerHeight;
 
-                    // Đảm bảo tọa độ ngẫu nhiên nằm trong phạm vi hợp lý
+                    const randomX = Math.random() * maxX;
+                    const randomY = Math.random() * maxY;
+
                     // Cập nhật vị trí của moder
                     moder.style.left = `${randomX}px`;
                     moder.style.top = `${randomY}px`;
