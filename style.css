@@ -25,6 +25,15 @@ body {
     border-radius: 8px;
 }
 
+#loading-items {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    column-gap: 200px;
+    position: relative;
+
+}
+
 .container h2 {
     margin: 0 0 4px 0;
     font-weight: 600;
@@ -302,21 +311,14 @@ body {
     color: black;
 }
 
-.loading-items {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 200px;
-    position: relative;
 
-}
 
 
 /* Loading 1 */
 .loading {
     position: relative;
     width: 110px;
-    display: none;
+    display: flex;
     position: relative;
     top: 15px;
 }
