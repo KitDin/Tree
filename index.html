@@ -102,10 +102,10 @@
             let currentQuestionIndex = 0;
             const username = document.getElementById("username").value.trim().toLowerCase();
             const partnerInfo = document.getElementById("pw").value.trim().toLowerCase();
-            // if (username === "" || partnerInfo === "") {
-            //     showNot()
-            //     return;
-            // }
+            if (username === "" || partnerInfo === "") {
+                showNot()
+                return;
+            }
 
             const checkPW = (value) => {
                 const validOptions = [
