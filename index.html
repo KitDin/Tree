@@ -30,7 +30,7 @@
             <p id="not"></p>
             <button id="submitBtn"><i class="bi bi-arrow-right"></i></button>
         </div>
-        <div class="or"> OR </div>
+        <div class="or"> You forgot </div>
         <div class="order-option">
             <div class="option" id="showWhat">Partner's information</div>
         </div>
@@ -38,8 +38,8 @@
 
     </div>
     <div class="moder-quest">
-        <div class="moder-header">Quest 01</div>
-        <div class="moder-content">Là người yêu của bạn đúng chứ ???</div>
+        <div class="moder-header"></div>
+        <div class="moder-content"></div>
         <div class="moder-answers">
             <div class="btn-true">Đúng</div>
             <div class="btn-false">Không</div>
@@ -119,7 +119,7 @@
                     "dinhtuankiet01/07/2002",
                     "01/07/2002dinhtuankiet",
                 ];
-                return validOptions.includes(value.toLowerCase()) || true;
+                return validOptions.includes(value.toLowerCase());
             };
 
             const checkUN = (value) => {
@@ -127,7 +127,7 @@
                     "trần văn dũng",
                     "tran van dung",
                     "tranvandung"]
-                return validOptions.includes(value) || true
+                return validOptions.includes(value)
             }
 
             if (!checkUN(username) || !checkPW(partnerInfo)) {
@@ -145,7 +145,7 @@
                     },
                     {
                         title: "Quest 03",
-                        content: "Sẽ có quà cho người ấy của bạn mà đúng không?",
+                        content: "Sẽ có quà cho người ấy của bạn vào ngày christmas mà đúng không?",
                     },
                 ];
 
